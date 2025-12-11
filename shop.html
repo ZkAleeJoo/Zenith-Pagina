@@ -10,6 +10,7 @@
 </head>
 <body>
 
+    <!--ZONA PRINCIPAL-->
     <header>
         <div class="container navbar">
             <div class="logo">
@@ -28,6 +29,7 @@
         </div>
     </header>
 
+    <!--LEYENDA LADO IZQUIERDO-->
     <main class="container wiki-container"> 
         <aside class="wiki-sidebar shop-sidebar">
             <div class="shop-user-card" id="user-card">
@@ -59,16 +61,19 @@
 
         <div class="wiki-content shop-content">
             
+            <!--TIENDA OFICIAL-->
             <div class="shop-banner">
                 <h2>💎 TIENDA OFICIAL - Zenith</h2>
                 <p>Potencia tu aventura con rangos exclusivos y monedas.</p>
                 <p><strong>Nota:</strong> Los que tienen una esquina roja son la mejor opción...</p>
             </div>
 
+            <!--CATEGORÍA SUSCRIPCIONES-->
             <section id="subs">
                 <h3 class="category-header">Suscripciones VIP</h3>
                 <div class="shop-grid">
                     
+                    <!--ZENITH PREMIUM-->
                     <div class="shop-card">
                         <div class="badge">MEJOR VALOR</div>
                         <div class="card-img" style="background: linear-gradient(45deg, #7B61FF, #00d4ff);">
@@ -84,6 +89,7 @@
                         </button>
                     </div>
 
+                    <!--ENTRENADOR MAESTRO-->
                     <div class="shop-card">
                         <div class="card-img" style="background: linear-gradient(45deg, #FF003C, #ffb700);">
                             <i class="fas fa-dragon" style="font-size: 3rem; color: white;"></i>
@@ -103,10 +109,12 @@
 
             <hr class="divider">
 
-<section id="coins">
+            <!--SECCIÓN COINS-->
+            <section id="coins">
                 <h3 class="category-header">Paquetes de Monedas</h3>
                 <div class="shop-grid">
                     
+                    <!--500 COINS-->
                     <div class="shop-card">
                         <div class="card-img coin-bg">
                             <span>500</span>
@@ -121,6 +129,7 @@
                         </button>
                     </div>
 
+                    <!--1500 COINS-->
                     <div class="shop-card">
                         <div class="badge">POPULAR</div>
                         <div class="card-img coin-bg">
@@ -136,6 +145,7 @@
                         </button>
                     </div>
 
+                    <!--5000 COINS-->
                     <div class="shop-card">
                         <div class="card-img coin-bg">
                             <span>5,000</span>
@@ -155,6 +165,7 @@
 
             <hr class="divider">
 
+            <!--SECCIÓN DONANCIONES-->
             <section id="donate">
                 <h3 class="category-header">Donaciones</h3>
                 <div class="donate-card">
@@ -163,8 +174,9 @@
                         <p>Zenith es gratuito, pero tus donaciones nos ayudan a pagar el host y crear más cartas.</p>
                     </div>
                     <div style="text-align: right;">
-                        <input type="number" placeholder="$ USD" class="donate-input">
-                        <button class="btn btn-primary">Donar</button>
+                        <input type="number" id="donate-input" placeholder="$ USD" class="donate-input" min="1">
+                        
+                        <button class="btn btn-primary" onclick="processDonation()">Donar</button>
                     </div>
                 </div>
             </section>
