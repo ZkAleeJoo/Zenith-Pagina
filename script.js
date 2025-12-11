@@ -1,6 +1,6 @@
 //ESTADISTICAS DEL BOT
 document.addEventListener('DOMContentLoaded', () => {
-    const API_URL = 'http://localhost:3000/api/stats'; 
+    const API_URL = 'https://zenith-h5de.onrender.com'; 
 
     async function fetchStats() {
         try {
