@@ -338,6 +338,28 @@ function openCartLogic() {
     }
 }
 
+
+//FUNCIÓN DE LAS NOTIFICACIONES
+function showToast(message, type = 'info') {
+    const container = document.getElementById('toast-container');
+    if (!container) return; 
+
+    const toast = document.createElement('div');
+    toast.classList.add('toast', type);
+    
+    let icon = 'fa-info-circle';
+    if (type === 'success') icon = 'fa-check-circle';
+    if (type === 'error') icon = 'fa-exclamation-triangle';
+
+    toast.innerHTML = `<i class="fas ${icon}"></i> <span>${message}</span>`;
+    
+    container.appendChild(toast);
+
+    setTimeout(() => {
+        toast.remove();
+    }, 3000);
+}
+
 function backToCart() {
     document.getElementById('cart-view-main').style.display = 'block';
     document.getElementById('cart-view-payment').style.display = 'none';
