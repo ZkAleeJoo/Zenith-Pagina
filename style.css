@@ -1,5 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
+
+/* SCROLLBAR PERSONALIZADO */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0014; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary); 
+    border-radius: 5px;
+    border: 2px solid #0a0014; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-dark); 
+}
+
 :root {
     --color-bg-main: #0a0014; 
     --color-bg-secondary: #120c1f; 
@@ -10,7 +30,7 @@
     --color-text-main: #ffffff;
     --color-text-muted: #b3b3b3;
 
-    /* Tipografía */
+    /* TIPOGRAFIA */
     --font-main: 'Poppins', sans-serif;
 
     --border-radius: 12px;
@@ -59,7 +79,7 @@ body {
     color: var(--color-primary);
 }
 
-/* Hero Section */
+/* SELECCION HERO */
 .hero {
     text-align: center;
     padding: var(--section-spacing) 0;
@@ -86,7 +106,7 @@ body {
     margin: 0 auto 2.5rem auto;
 }
 
-/* Botones */
+/* BOTONES */
 .btn {
     display: inline-block;
     padding: 0.8rem 2rem;
@@ -114,7 +134,7 @@ body {
     margin-left: 1rem;
 }
 
-/* --- Estilos para la Página de Comandos --- */
+/* ESTILO PARA LA PÁGINA DE COMANDOS */
 
 .category-title {
     color: var(--color-text-main);
@@ -162,7 +182,7 @@ body {
     font-size: 0.95rem;
 }
 
-/* --- Estilos de la WIKI --- */
+/* ESTILOS PARA LA WIKI */
 
 .wiki-container {
     display: flex;
@@ -295,7 +315,7 @@ body {
 }
 
 
-/* --- ESTILOS DE LA TIENDA (SHOP) --- */
+/* ESTILOS PARA LA SHOP */
 
 .shop-sidebar {
     text-align: center;
@@ -406,7 +426,7 @@ body {
     font-size: 1.4rem;
 }
 
-/* --- BOTONES DE TIENDA UNIFICADOS (Estilo Zenith) --- */
+/* BOTONES DE LA TIENDA DE MANERA GLOBAL */
 .btn-shop {
     width: 100%;             
     display: block;          
@@ -481,7 +501,7 @@ body {
 
 
 
-/* --- ESTILOS DE MODALES (VENTANAS EMERGENTES) --- */
+/* ESTILO DE LOS MODALES */
 
 .modal-overlay {
     position: fixed;
@@ -632,7 +652,7 @@ body {
 }
 
 
-/* --- Animación Botones de Pago (PayPal / Yape) --- */
+/* ANIMACIONES DE LOS BOTONES YAPE Y PAYPAL */
 
 .payment-methods button {
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
@@ -670,4 +690,51 @@ body {
     border-color: #BC32E7 !important;
     background: rgba(188, 50, 231, 0.1);
     box-shadow: 0 0 15px rgba(188, 50, 231, 0.4);
+}
+
+/* ANIMACION DE LAS NOTIFICACIONES */
+#toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast {
+    background: rgba(18, 12, 31, 0.95);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    border-left: 5px solid var(--color-primary);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 250px;
+    animation: slideIn 0.3s ease, fadeOut 0.3s ease 2.7s forwards;
+    backdrop-filter: blur(5px);
+}
+
+.toast.error {
+    border-left-color: #FF003C;
+}
+
+.toast.success {
+    border-left-color: #00ff88;
+}
+
+.toast i {
+    font-size: 1.2rem;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; pointer-events: none; }
 }
