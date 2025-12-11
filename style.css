@@ -1,0 +1,673 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    --color-bg-main: #0a0014; 
+    --color-bg-secondary: #120c1f; 
+    --color-primary: #7B61FF; 
+    --color-primary-dark: #5e338c; 
+    --color-accent-red: #FF003C; 
+    
+    --color-text-main: #ffffff;
+    --color-text-muted: #b3b3b3;
+
+    /* Tipografía */
+    --font-main: 'Poppins', sans-serif;
+
+    --border-radius: 12px;
+    --section-spacing: 80px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--color-bg-main);
+    color: var(--color-text-main);
+    line-height: 1.6;
+    background-image: radial-gradient(circle at 50% 0%, #2a0a4d 0%, var(--color-bg-main) 60%);
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+}
+
+.nav-links a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--color-primary);
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: var(--section-spacing) 0;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    
+    background: linear-gradient(to right, var(--color-text-main), var(--color-primary));
+    
+    background-clip: text; 
+    -webkit-background-clip: text;
+    
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--color-text-muted);
+    max-width: 700px;
+    margin: 0 auto 2.5rem auto;
+}
+
+/* Botones */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    box-shadow: 0 4px 15px rgba(123, 97, 255, 0.3); 
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--color-bg-secondary);
+    color: var(--color-text-main);
+    margin-left: 1rem;
+}
+
+/* --- Estilos para la Página de Comandos --- */
+
+.category-title {
+    color: var(--color-text-main);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    border-left: 4px solid var(--color-primary);
+    padding-left: 1rem;
+}
+
+.commands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.command-card {
+    background-color: var(--color-bg-secondary);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(123, 97, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.command-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(123, 97, 255, 0.15);
+    border-color: var(--color-primary);
+}
+
+.cmd-name {
+    display: inline-block;
+    color: var(--color-primary);
+    background: rgba(123, 97, 255, 0.1);
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    font-weight: bold;
+}
+
+.command-card p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+}
+
+/* --- Estilos de la WIKI --- */
+
+.wiki-container {
+    display: flex;
+    gap: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    align-items: flex-start; 
+}
+
+.wiki-sidebar {
+    width: 250px;
+    background: rgba(18, 12, 31, 0.5); 
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(123, 97, 255, 0.1);
+    
+    position: sticky;
+    top: 2rem; 
+    flex-shrink: 0;
+}
+
+.wiki-sidebar h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--color-text-main);
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.wiki-sidebar ul {
+    list-style: none;
+}
+
+.wiki-sidebar li {
+    margin-bottom: 0.8rem;
+}
+
+.wiki-sidebar a {
+    text-decoration: none;
+    color: var(--color-text-muted);
+    transition: color 0.3s;
+    font-size: 0.95rem;
+}
+
+.wiki-sidebar a:hover, .wiki-sidebar a.active-link {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.wiki-content {
+    flex: 1; 
+    background: var(--color-bg-secondary);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    line-height: 1.8; 
+}
+
+.wiki-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+}
+
+.wiki-content h2 {
+    font-size: 1.8rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-text-main);
+}
+
+.wiki-content h3 {
+    font-size: 1.4rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: #e0e0e0;
+}
+
+.wiki-content p {
+    color: #cccccc;
+    margin-bottom: 1rem;
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 2rem 0;
+}
+
+.alert-box {
+    background: rgba(123, 97, 255, 0.1);
+    border-left: 4px solid var(--color-primary);
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1.5rem 0;
+    color: #e0e0e0;
+}
+
+.code-block {
+    background: #050505;
+    padding: 1rem;
+    border-radius: 6px;
+    font-family: monospace;
+    color: #00ff9d; 
+    border: 1px solid #333;
+}
+
+.rarity-list {
+    list-style: none;
+}
+
+.rarity-list li {
+    background: rgba(255, 255, 255, 0.03);
+    margin-bottom: 0.5rem;
+    padding: 0.8rem;
+    border-left: 4px solid; 
+    border-radius: 0 4px 4px 0;
+}
+
+@media (max-width: 768px) {
+    .wiki-container {
+        flex-direction: column;
+    }
+    .wiki-sidebar {
+        width: 100%;
+        position: relative;
+        top: 0;
+    }
+}
+
+
+/* --- ESTILOS DE LA TIENDA (SHOP) --- */
+
+.shop-sidebar {
+    text-align: center;
+}
+
+.shop-user-card {
+    background: rgba(0,0,0,0.3);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border: 1px dashed var(--color-text-muted);
+}
+
+.shop-banner {
+    background: linear-gradient(to right, var(--color-bg-main), var(--color-primary-dark));
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+    border: 1px solid rgba(123, 97, 255, 0.3);
+}
+
+.category-header {
+    font-size: 1.5rem;
+    color: var(--color-text-main);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.shop-card {
+    background: #0f0b15;
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.shop-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primary);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--color-accent-red);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.card-img {
+    height: 120px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.coin-bg {
+    background: radial-gradient(circle, #ffd700 0%, #b8860b 100%);
+    color: #5c4002;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.shop-card h4 {
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.desc {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.price {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--color-text-muted);
+}
+
+.price span {
+    color: var(--color-primary); 
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+/* --- BOTONES DE TIENDA UNIFICADOS (Estilo Zenith) --- */
+.btn-shop {
+    width: 100%;             
+    display: block;          
+    padding: 0.8rem;
+    margin-top: auto;        
+    
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;     
+    
+    background-size: 300% 100%;
+    background-image: linear-gradient(
+        to right, 
+        #7B61FF,
+        #9D00FF, 
+        #FF003C, 
+        #7B61FF 
+    );
+    color: white !important; 
+    border: none;            
+    border-radius: var(--border-radius);
+    
+    transition: all 0.4s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(123, 97, 255, 0.4);
+}
+
+.btn-shop:hover {
+    background-position: 100% 0; 
+    box-shadow: 0 0 25px rgba(157, 0, 255, 0.6); 
+    transform: translateY(-3px); 
+}
+
+.btn-shop:active {
+    transform: scale(0.95);
+}
+
+
+/* SECCIÓN DONANCIÓN */
+.donate-card {
+    background: linear-gradient(45deg, #1e1433, #0f0b15);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    border: 1px solid var(--color-primary);
+}
+
+.donate-input {
+    background: rgba(0,0,0,0.3);
+    border: 1px solid var(--color-text-muted);
+    padding: 0.8rem;
+    border-radius: 8px;
+    color: white;
+    width: 100px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .donate-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    .donate-card div {
+        text-align: center !important;
+    }
+}
+
+
+
+/* --- ESTILOS DE MODALES (VENTANAS EMERGENTES) --- */
+
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px); 
+    z-index: 1000;
+    display: none; 
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-box {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-primary);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 450px;
+    z-index: 1001;
+    display: none;
+    box-shadow: 0 0 30px rgba(123, 97, 255, 0.2);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.active, .modal-box.active {
+    display: block;
+    opacity: 1;
+}
+.modal-box.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px; right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--color-text-muted);
+}
+
+.gengar-modal {
+    border-color: #9D00FF;
+    box-shadow: 0 0 30px rgba(157, 0, 255, 0.3);
+}
+
+.gengar-face.spectral-shape {
+    width: 140px;
+    height: 90px;
+    margin: 0 auto 1.5rem; 
+    border-radius: 50% 50% 40% 40% / 60% 60% 40% 40%; 
+    position: relative;
+    
+    background: 
+        radial-gradient(circle at 30% 45%, #FF003C 8%, transparent 25%),
+        radial-gradient(circle at 70% 45%, #FF003C 8%, transparent 25%),
+        linear-gradient(to bottom, #2a0a4d, #0a0014);
+
+    box-shadow: 
+        inset 0 0 20px rgba(0,0,0,0.8), 
+        0 0 30px rgba(123, 97, 255, 0.4);
+
+    animation: float 3s ease-in-out infinite;
+    overflow: hidden;
+}
+
+.gengar-face.spectral-shape::after {
+    content: '';
+    position: absolute;
+    bottom: 15%;
+    left: 30%;
+    width: 40%;
+    height: 15px;
+    border-bottom: 3px solid rgba(123, 97, 255, 0.5); 
+    border-radius: 50%;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.cart-items-list {
+    text-align: left;
+    max-height: 200px;
+    overflow-y: auto;
+    margin: 1.5rem 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 10px 0;
+}
+
+.cart-item-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+}
+
+.qr-container {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 15px 0;
+}
+
+.qr-img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+
+.instruction-step {
+    background: rgba(255,255,255,0.05);
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.step-num {
+    background: var(--color-primary);
+    width: 25px; height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+
+/* --- Animación Botones de Pago (PayPal / Yape) --- */
+
+.payment-methods button {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    position: relative;
+    overflow: hidden;
+}
+
+.payment-methods button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.payment-methods button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transition: 0.5s;
+}
+
+.payment-methods button:hover::after {
+    left: 100%;
+}
+
+.payment-methods button:first-child:hover { 
+    border-color: #00457C !important;
+    background: rgba(0, 69, 124, 0.1);
+    box-shadow: 0 0 15px rgba(0, 69, 124, 0.4);
+}
+
+.payment-methods button:last-child:hover { 
+    border-color: #BC32E7 !important;
+    background: rgba(188, 50, 231, 0.1);
+    box-shadow: 0 0 15px rgba(188, 50, 231, 0.4);
+}

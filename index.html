@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenith | TCG Pokémon & Coleccionables</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="icon" type="image/png" href="assets/img/zenith.png">
+</head>
+<body>
+
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                <h2 style="color: var(--color-primary);">ZENITH</h2>
+            </div>
+            <nav class="nav-links">
+                <a href="#" class="active">INICIO</a>
+                <a href="wiki.html">WIKI</a> 
+                <a href="shop.html">COMPRAS</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <span style="background: #1e1433; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; color: var(--color-primary); font-weight: 600;">
+                    Un TCG clásico
+                </span>
+                
+                <h1>Juega y colecciona....</h1>
+                <p>
+                    Zenith te ofrece una experiencia donde podrás coleccionar cartas de tus pokemones favoritos,
+                    entre legendarios, shinys y más. ¡Únete a nuestra comunidad y comienza tu aventura hoy mismo!
+                </p>
+                
+                <div class="hero-buttons">
+                    <a href="https://discord.com/oauth2/authorize?client_id=1442510172961378457&permissions=8&integration_type=0&scope=applications.commands+bot" 
+                    class="btn btn-primary" 
+                    target="_blank">
+                    Invitar a Zenith →
+                    </a>
+                    <a href="commands.html" class="btn btn-secondary">Ver Comandos</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats" style="text-align: center; padding: 2rem 0; border-top: 1px solid #1e1433;">
+            <div class="container" style="display: flex; justify-content: space-around; color: var(--color-text-muted);">
+                <div>
+                    <h3 id="stat-ping" style="color: var(--color-primary); font-size: 1.5rem;">-- ms</h3>
+                    <p>Ping</p>
+                </div>
+                <div>
+                    <h3 id="stat-users" style="color: var(--color-primary); font-size: 1.5rem;">--</h3>
+                    <p>Entrenadores</p>
+                </div>
+                <div>
+                    <h3 id="stat-servers" style="color: var(--color-primary); font-size: 1.5rem;">--</h3>
+                    <p>Servidores</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki y Guías | Zenith TCG</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/img/zenith.png">
+</head>
+<body>
+
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none;">
+                    <h2 style="color: var(--color-primary);">ZENITH</h2>
+                </a>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html">INICIO</a>
+                <a href="wiki.html" class="active">WIKI</a>
+                <a href="shop.html">COMPRAS</a> 
+            </nav>
+        </div>
+    </header>
+
+    <main class="container wiki-container">
+        
+        <aside class="wiki-sidebar">
+            <h3>Tabla de Contenidos</h3>
+            <ul>
+                <li><a href="#intro" class="active-link">Introducción</a></li>
+                <li><a href="#install">Instalación</a></li>
+                <li><a href="#gameplay">Cómo Jugar</a></li>
+                <li><a href="#rarity">Rarezas</a></li>
+            </ul>
+        </aside>
+
+        <article class="wiki-content">
+            
+            <section id="intro">
+                <h1>Bienvenido a la Wiki de Zenith</h1>
+                <p>Zenith es un bot de cartas coleccionables (TCG). Aquí encontrarás todo lo necesario para convertirte en el mejor entrenador del servidor.</p>
+                
+                <div class="alert-box">
+                    <strong>Nota:</strong> Zenith está en constante evolución. Esta wiki se actualiza con cada versión nueva.
+                </div>
+
+                <div class="alert-box" style="border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.1);">
+                    <strong>Versión Actual:</strong> 1.0 
+                </div>
+            </section>
+
+            <hr class="divider">
+
+            <section id="install">
+                <h2>Guía de instalación</h2>
+                <p>Añadir a Zenith a tu servidor es sencillo, solo da click y sigue los pasos. ¡Por precaución el bot te pedirá permisos de administrador!</p>
+                
+                <ol style="margin-left: 20px; color: var(--color-text-muted);">
+                    <li style="margin-bottom: 10px;">
+                        Haz clic en el botón de <a href="https://discord.com/oauth2/authorize?client_id=1442510172961378457&permissions=8&integration_type=0&scope=applications.commands+bot" target="_blank" style="color: var(--color-primary); font-weight: bold;">Invitación</a>.
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        Selecciona tu servidor en la lista desplegable que aparecerá en Discord.
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        Asegúrate de conceder los permisos solicitados para que Zenith funcione correctamente.
+                    </li>
+                </ol>
+            </section>
+
+            <hr class="divider">
+
+            <section id="gameplay">
+                <h2>¿Cómo jugar?</h2>
+                <p>La mecánica principal del bot es el comando <strong>/open</strong>. A base de este empezarás tu colección.</p>
+                
+                <div class="code-block">
+                    /open
+                </div>
+
+                <p>Una vez ejecutado el comando, deberás esperar unos segundos hasta que la carta sea revelada. Existe una
+                    pequeña probabilidad de obtener cartas Legendarias y Shinys. ¡Buena suerte!
+                </p>
+            </section>
+
+            <hr class="divider">
+
+            <section id="rarity">
+                <h2>Rarezas</h2>
+                <p>No todas las cartas son iguales. Zenith clasifica las cartas según el tipo del pokémon e incluso si es Legendario o Shiny.</p>
+                <ul class="rarity-list">
+                    <li style="border-left-color: #b0b0b0;">
+                        <strong>Común:</strong> Puede variar dependiendo el tipo. (99%)
+                    </li>
+                    <li style="border-left-color: #ef4444;">
+                        <strong>Legendarios:</strong> Los legendarios salen con un color predefinido. (1%)
+                    </li>
+                    <li style="border-left-color: #eab308;">
+                        <strong>Shiny (Dorado):</strong> Los Shinys aparecen con un color brillante. (0.5%)
+                    </li>
+                </ul>
+            </section>
+
+        </article>
+    </main>
+
+    <footer style="text-align: center; padding: 2rem; color: var(--color-text-muted); font-size: 0.9rem; border-top: 1px solid #1e1433;">
+        <p>&copy; 2025 Zenith Bot. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const sections = document.querySelectorAll('section');
+        const navLi = document.querySelectorAll('.wiki-sidebar ul li a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLi.forEach(a => {
+                a.classList.remove('active-link');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active-link');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
