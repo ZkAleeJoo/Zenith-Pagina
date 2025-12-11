@@ -151,6 +151,10 @@ function updateCartUI() {
 }
 
 function openCartLogic() {
+
+    isDonationMode = false; 
+    document.getElementById('cart-title').innerHTML = '<i class="fas fa-shopping-cart"></i> Tu Botín';
+    
     const user = localStorage.getItem('zenithUser');
 
     if (!user) {
