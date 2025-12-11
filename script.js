@@ -234,7 +234,7 @@ function startPayment(method) {
     }
 
     if (total === 0) {
-        showToast(isDonationMode ? "Ingresa un monto válido." : "¡Tu carrito está vacío!");
+        showToast(isDonationMode ? "Ingresa un monto válido." : "¡Tu carrito está vacío!", "error");
         return;
     }
 
@@ -298,7 +298,7 @@ function processDonation() {
     const amount = parseFloat(input.value);
 
     if (!amount || amount <= 0) {
-        showToast("Por favor, ingresa un monto válido mayor a 0.");
+        showToast("Por favor, ingresa un monto válido mayor a 0.", "error");
         return;
     }
 
