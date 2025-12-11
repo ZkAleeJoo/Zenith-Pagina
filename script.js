@@ -154,7 +154,7 @@ function openCartLogic() {
 
     isDonationMode = false; 
     document.getElementById('cart-title').innerHTML = '<i class="fas fa-shopping-cart"></i> Tu Botín';
-    
+
     const user = localStorage.getItem('zenithUser');
 
     if (!user) {
@@ -289,40 +289,9 @@ function startPayment(method) {
     }
 }
 
-//FUNCIÓN DE LAS DONACIONES
-function processDonation() {
-    const input = document.getElementById('donate-input');
-    const amount = parseFloat(input.value);
-
-    if (!amount || amount <= 0) {
-        alert("Por favor, ingresa un monto válido mayor a 0.");
-        return;
-    }
-
-    isDonationMode = true;
-    donationAmount = amount;
-
-    const modal = document.getElementById('modal-cart');
-    const overlay = document.getElementById('modal-overlay');
-    
-    overlay.classList.add('active');
-    modal.classList.add('active');
-
-    document.getElementById('cart-title').innerHTML = '<i class="fas fa-heart" style="color: #FF003C;"></i> Tu Donación';
-    
-    const container = document.getElementById('cart-items-container');
-    container.innerHTML = `
-        <div style="text-align:center; padding: 20px;">
-            <p>¡Gracias por apoyar a Zenith!</p>
-            <p style="font-size: 1.2rem; margin-top:10px; color: #fff;">Monto a donar: <strong style="color: var(--color-primary);">$${amount.toFixed(2)}</strong></p>
-        </div>
-    `;
-
-    document.getElementById('cart-total-price').innerText = `$${amount.toFixed(2)}`;
-    
-    document.getElementById('cart-view-main').style.display = 'block';
-    document.getElementById('cart-view-payment').style.display = 'none';
-}
+//SISTEMA DE PAGO
+let isDonationMode = false;
+let donationAmount = 0;
 
 function startPayment(method) {
     const mainView = document.getElementById('cart-view-main');
@@ -333,13 +302,13 @@ function startPayment(method) {
     let total = 0;
 
     if (isDonationMode) {
-        total = donationAmount;
+        total = donationAmount; 
     } else {
-        myCart.forEach(item => total += item.price);
+        myCart.forEach(item => total += item.price); 
     }
 
     if (total === 0) {
-        alert("El monto es 0.");
+        alert(isDonationMode ? "Ingresa un monto válido." : "¡Tu carrito está vacío!");
         return;
     }
 
@@ -347,7 +316,7 @@ function startPayment(method) {
     paymentView.style.display = 'block';
 
     if (method === 'paypal') {
-        cartTitle.innerHTML = '<i class="fab fa-paypal"></i> Donar con PayPal';
+        cartTitle.innerHTML = '<i class="fab fa-paypal"></i> Pagar con PayPal';
         const paypalLink = `https://www.paypal.com/paypalme/AlejandroPretell/${total}`;
         
         paymentContent.innerHTML = `
@@ -372,8 +341,8 @@ function startPayment(method) {
         `;
     } 
     else if (method === 'yape') {
-        cartTitle.innerHTML = '📱 Donar con Yape';
-        const totalSoles = (total * 3.80).toFixed(2);
+        cartTitle.innerHTML = '📱 Pagar con Yape';
+        const totalSoles = (total * 3.80).toFixed(2); 
         
         paymentContent.innerHTML = `
             <p>Monto a Yapear: <strong>S/ ${totalSoles}</strong></p>
@@ -395,6 +364,51 @@ function startPayment(method) {
                 <div>Usa el comando <code>/confirmar-pago</code> en Discord.</div>
             </div>
         `;
+    }
+}
+
+function processDonation() {
+    const input = document.getElementById('donate-input');
+    const amount = parseFloat(input.value);
+
+    if (!amount || amount <= 0) {
+        alert("Por favor, ingresa un monto válido mayor a 0.");
+        return;
+    }
+
+    isDonationMode = true;
+    donationAmount = amount;
+
+    openModal('modal-cart'); 
+
+    document.getElementById('cart-title').innerHTML = '<i class="fas fa-heart" style="color: #FF003C;"></i> Tu Donación';
+    
+    const container = document.getElementById('cart-items-container');
+    container.innerHTML = `
+        <div style="text-align:center; padding: 20px;">
+            <p>¡Gracias por apoyar a Zenith!</p>
+            <p style="font-size: 1.2rem; margin-top:10px; color: #fff;">Monto a donar: <strong style="color: var(--color-primary);">$${amount.toFixed(2)}</strong></p>
+        </div>
+    `;
+
+    document.getElementById('cart-total-price').innerText = `$${amount.toFixed(2)}`;
+    
+    document.getElementById('cart-view-main').style.display = 'block';
+    document.getElementById('cart-view-payment').style.display = 'none';
+}
+
+function openCartLogic() {
+    isDonationMode = false; 
+    document.getElementById('cart-title').innerHTML = '<i class="fas fa-shopping-cart"></i> Tu Botín';
+    
+    const user = localStorage.getItem('zenithUser');
+
+    if (!user) {
+        openModal('modal-login');
+    } 
+    else {
+        renderCartItems();
+        openModal('modal-cart');
     }
 }
 
