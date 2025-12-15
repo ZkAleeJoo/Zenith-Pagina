@@ -1,6 +1,6 @@
 //ESTADISTICAS DEL BOT
 document.addEventListener('DOMContentLoaded', () => {
-    const API_URL = 'http://23.153.72.186:1302/api/stats'; 
+    const API_URL = 'http://panel.tect.host:1302/api/stats'; 
 
     async function fetchStats() {
         try {
