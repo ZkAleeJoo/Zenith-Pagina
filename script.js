@@ -1,6 +1,6 @@
 //ESTADISTICAS DEL BOT
 document.addEventListener('DOMContentLoaded', () => {
-    const API_URL = 'http://mi4.tect.host:1302/api/stats'; 
+    const API_URL = 'https://mi4.tect.host:1302/api/stats';
 
     async function fetchStats() {
         try {
