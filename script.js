@@ -1,6 +1,6 @@
 //ESTADISTICAS DEL BOT
 document.addEventListener('DOMContentLoaded', () => {
-    const API_URL = 'http://panel.tect.host:1302/api/stats'; 
+    const API_URL = 'http://mi4.tect.host:1302/api/stats'; 
 
     async function fetchStats() {
         try {
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if(document.getElementById('stat-ping')) {
         fetchStats();
-        setInterval(fetchStats, 30000); 
+        setInterval(fetchStats, 5000); 
     }
 });
 
