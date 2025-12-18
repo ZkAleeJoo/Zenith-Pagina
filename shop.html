@@ -11,13 +11,13 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Zenith | TCG Pokémon & Coleccionables">
     <meta property="og:description" content="Únete a la aventura TCG definitiva en Discord. Colecciona cartas, lucha, intercambia y conviértete en el mejor entrenador.">
-    <meta property="og:image" content="assets/img/zenith.png"> <meta property="og:url" content="https://zenithbot.com"> <meta property="og:color" content="#7B61FF"> <meta name="theme-color" content="#7B61FF">
-
-    
+    <meta property="og:image" content="assets/img/zenith.png"> 
+    <meta property="og:url" content="https://zkaleejoo.github.io/Zenith-Pagina/"> 
+    <meta property="og:color" content="#7B61FF"> 
+    <meta name="theme-color" content="#7B61FF">
 </head>
 <body>
 
-    <!--ZONA PRINCIPAL-->
     <header>
         <div class="container navbar">
             <div class="logo">
@@ -36,7 +36,6 @@
         </div>
     </header>
 
-    <!--LEYENDA LADO IZQUIERDO-->
     <main class="container wiki-container"> 
         <aside class="wiki-sidebar shop-sidebar">
             <div class="shop-user-card" id="user-card">
@@ -48,9 +47,9 @@
                 <p id="user-name" style="font-size: 0.9rem; color: var(--color-text-main); font-weight: bold;">Invitado</p>
                 
                 <div id="login-btn-container" style="margin-top: 10px;">
-                    <a id="discord-login-btn" href="https://discord.com/oauth2/authorize?client_id=1442510172961378457&response_type=token&redirect_uri=http%3A%2F%2F127.0.0.1%3A5500%2Fshop.html&scope=identify" class="btn btn-primary" style="padding: 5px 15px; font-size: 0.8rem; width: 100%;">
+                    <button id="discord-login-btn" onclick="loginConDiscord()" class="btn btn-primary" style="padding: 5px 15px; font-size: 0.8rem; width: 100%; border:none; cursor:pointer;">
                         <i class="fab fa-discord"></i> Conectar
-                    </a>
+                    </button>
                 </div>
                 
                 <button id="logout-btn" onclick="logout()" style="display: none; background: transparent; border: 1px solid #ff4444; color: #ff4444; padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; margin-top: 5px; cursor: pointer; width: 100%;">
@@ -67,249 +66,70 @@
         </aside>
 
         <div class="wiki-content shop-content">
-            
-            <!--TIENDA OFICIAL-->
             <div class="shop-banner">
                 <h2>💎 TIENDA OFICIAL - Zenith</h2>
                 <p>Potencia tu aventura con rangos exclusivos y monedas.</p>
-                <p><strong>Nota:</strong> Los que tienen una esquina roja son la mejor opción...</p>
             </div>
 
-            <!--CATEGORÍA SUSCRIPCIONES-->
             <section id="subs">
                 <h3 class="category-header">Suscripciones VIP</h3>
                 <div class="shop-grid">
-                    
-                    <!--ZENITH PREMIUM-->
                     <div class="shop-card">
                         <div class="badge">MEJOR VALOR</div>
                         <div class="card-img" style="background: linear-gradient(45deg, #7B61FF, #00d4ff);">
                             <i class="fas fa-crown" style="font-size: 3rem; color: white;"></i>
                         </div>
                         <h4>Zenith Premium</h4>
-                        <p class="desc">Cooldowns reducidos, mejora en /daily - insignia exclusiva.</p>
-                        <div class="price">
-                            <span>$2</span> / mes
-                        </div>
+                        <p class="desc">Cooldowns reducidos, mejora en /daily e insignia exclusiva.</p>
+                        <div class="price"><span>$2</span> / mes</div>
                         <button class="btn btn-primary btn-shop" data-name="Zenith Premium" data-price="2.00">
                             Añadir al Carrito
                         </button>
                     </div>
 
-                    <!--ENTRENADOR MAESTRO-->
                     <div class="shop-card">
                         <div class="card-img" style="background: linear-gradient(45deg, #FF003C, #ffb700);">
                             <i class="fas fa-dragon" style="font-size: 3rem; color: white;"></i>
                         </div>
                         <h4>Entrenador Maestro</h4>
-                        <p class="desc">Todo lo de Premium + Acceso anticipado a eventos y insignia de perfil único.</p>
-                        <div class="price">
-                            <span>$5</span> / mes
-                        </div>
-                        <button class="btn btn-primary btn-shop" data-name="Zenith Premium Maestro" data-price="5.00">
+                        <p class="desc">Todo lo de Premium + Acceso anticipado a eventos.</p>
+                        <div class="price"><span>$5</span> / mes</div>
+                        <button class="btn btn-primary btn-shop" data-name="Zenith Maestro" data-price="5.00">
                             Añadir al Carrito
                         </button>
                     </div>
-
                 </div>
             </section>
 
             <hr class="divider">
 
-            <!--SECCIÓN COINS-->
             <section id="coins">
                 <h3 class="category-header">Paquetes de Monedas</h3>
                 <div class="shop-grid">
-                    
-                    <!--500 COINS-->
                     <div class="shop-card">
-                        <div class="card-img coin-bg">
-                            <span>500</span>
-                        </div>
+                        <div class="card-img coin-bg"><span>500</span></div>
                         <h4>Bolsa de Monedas</h4>
-                        <p class="desc" style="visibility: hidden;">Espacio de relleno para alinear</p>
-                        
                         <div class="price"><span>$1.99</span></div>
-                        
                         <button class="btn btn-primary btn-shop" data-name="Coins 500" data-price="1.99">
                             Añadir al Carrito
                         </button>
                     </div>
-
-                    <!--1500 COINS-->
                     <div class="shop-card">
                         <div class="badge">POPULAR</div>
-                        <div class="card-img coin-bg">
-                            <span>1,500</span>
-                        </div>
+                        <div class="card-img coin-bg"><span>1,500</span></div>
                         <h4>Cofre de Monedas</h4>
-                        <p class="desc" style="visibility: hidden;">Espacio de relleno para alinear</p>
-                        
                         <div class="price"><span>$4.99</span></div>
-                        
                         <button class="btn btn-primary btn-shop" data-name="Coins 1500" data-price="4.99">
                             Añadir al Carrito
                         </button>
                     </div>
-
-                    <!--5000 COINS-->
-                    <div class="shop-card">
-                        <div class="card-img coin-bg">
-                            <span>5,000</span>
-                        </div>
-                        <h4>Tesoro de Dragón</h4>
-                        <p class="desc" style="visibility: hidden;">Espacio de relleno para alinear</p>
-                        
-                        <div class="price"><span>$14.99</span></div>
-                        
-                        <button class="btn btn-primary btn-shop" data-name="Coins 5000" data-price="14.99">
-                            Añadir al Carrito
-                        </button>
-                    </div>
-
                 </div>
             </section>
 
             <hr class="divider">
 
-            <!--SECCIÓN DONANCIONES-->
             <section id="donate">
                 <h3 class="category-header">Donaciones</h3>
                 <div class="donate-card">
                     <div style="flex: 1;">
-                        <h4>Apoya el desarrollo</h4>
-                        <p>Zenith es gratuito, pero tus donaciones nos ayudan a pagar el host y crear más cartas.</p>
-                    </div>
-                    <div style="text-align: right;">
-                        <input type="number" id="donate-input" placeholder="$ USD" class="donate-input" min="1">
-                        
-                        <button class="btn btn-primary" onclick="processDonation()">Donar</button>
-                    </div>
-                </div>
-            </section>
-
-        </div>
-    </main>
-
-    <!--FOOTER-->
-    <footer class="site-footer">
-    <div class="container footer-content">
-        
-        <div class="footer-col">
-            <div class="footer-logo">
-                <h3 style="color: var(--color-primary); font-size: 1.8rem;">ZENITH</h3>
-            </div>
-            <p class="footer-desc">
-                La experiencia TCG definitiva en Discord. Colecciona, intercambia y domina el servidor con tus cartas favoritas.
-            </p>
-        </div>
-
-        <div class="footer-col">
-            <h4>Explorar</h4>
-            <ul class="footer-links">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="wiki.html">Wiki & Guías</a></li>
-                <li><a href="commands.html">Comandos</a></li>
-                <li><a href="shop.html">Tienda Oficial</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-col">
-            <h4>Soporte</h4>
-            <ul class="footer-links">
-                <li><a href="#">Servidor de Soporte</a></li>
-                <li><a href="#">Términos de Servicio</a></li>
-                <li><a href="#">Política de Privacidad</a></li>
-                <li><a href="#">Estado del Bot</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="footer-bottom">
-        <p>&copy; 2025 Zenith Bot - Todos los derechos reservados</p>
-    </div>
-</footer>
-
-    <div id="modal-overlay" class="modal-overlay"></div>
-
-    <div id="modal-login" class="modal-box gengar-modal">
-        <div class="modal-close" onclick="closeModals()">&times;</div>
-        
-        <div class="gengar-face spectral-shape"></div>
-        
-        <h3>¡Alto ahí, mortal!</h3>
-        <p>Zenith no deja pasar a extraños. Necesitas <strong>iniciar sesión</strong> con Discord para gestionar tu carrito y realizar compras.</p>
-        <button onclick="document.getElementById('discord-login-btn').click()" class="btn btn-primary" style="width: 100%; margin-top: 15px;">
-            Conectar con Discord
-        </button>
-    </div>
-
-    <div id="modal-cart" class="modal-box">
-        <div class="modal-close" onclick="closeModals()">&times;</div>
-        
-        <h3 id="cart-title"><i class="fas fa-shopping-cart"></i> Tu Botín</h3>
-        
-        <div id="cart-view-main">
-            <div id="cart-items-container" class="cart-items-list">
-                <p style="text-align: center; color: #666;">Tu carrito está vacío...</p>
-            </div>
-
-            <div class="cart-total">
-                <span>Total a pagar:</span>
-                <span id="cart-total-price" style="color: var(--color-primary); font-size: 1.5rem;">$0.00</span>
-            </div>
-
-            <div class="payment-methods">
-                <p style="margin-bottom: 10px; font-size: 0.9rem;">Selecciona método de pago:</p>
-                <div style="display: flex; gap: 10px;">
-                    <button onclick="startPayment('paypal')" class="btn btn-secondary" style="flex: 1; border-color: #00457C; color: #009cde;">
-                        <i class="fab fa-paypal"></i> PayPal
-                    </button>
-                    <button onclick="startPayment('yape')" class="btn btn-secondary" style="flex: 1; border-color: #BC32E7; color: #BC32E7;">
-                        📱 Yape
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div id="cart-view-payment" style="display: none; text-align: center;">
-            <div id="payment-content"></div>
-            <button onclick="backToCart()" class="btn btn-secondary" style="margin-top: 20px; font-size: 0.8rem;">
-                ← Volver al carrito
-            </button>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-
-    <script>
-        const sections = document.querySelectorAll('section');
-        const navLi = document.querySelectorAll('.wiki-sidebar ul li a');
-
-        window.addEventListener('scroll', () => {
-            let current = '';   
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
-                current = 'donate'; 
-            }
-
-            navLi.forEach(a => {
-                a.classList.remove('active-link');
-                if (current && a.getAttribute('href').includes(current)) {
-                    a.classList.add('active-link');
-                }
-            });
-        });
-    </script>
-
-    <div id="toast-container"></div>
-
-</body>
-</html>
+                        <h4>Apoya
